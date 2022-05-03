@@ -11,8 +11,6 @@ public class Locomotion : MonoBehaviour
 
     private Animator myAnimator = null;
 
-    private bool jump = false;
-
     [SerializeField]
     private float jumpForce = 400f;
 
@@ -26,26 +24,27 @@ public class Locomotion : MonoBehaviour
 
     private bool isGrounded = false;
 
+    private bool canMove = true;
+
+    private PlayerInput inputController = null;
+
     private void Awake()
     {
         myRigidbody2D = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
+        inputController = GetComponent<PlayerInput>();
     }
 
     private void Update()
     {
-        float horizontalInput = Input.GetAxisRaw("Horizontal");
-
-        myRigidbody2D.velocity = new Vector2(horizontalInput * speed, myRigidbody2D.velocity.y);
-
-        if (IsFacingBackwards(horizontalInput))
+        if (canMove)
         {
-            Flip();
+            myRigidbody2D.velocity = new Vector2(inputController.horizontalInput * speed, myRigidbody2D.velocity.y);
         }
 
-        if (Input.GetButtonDown("Jump"))
+        if (IsFacingBackwards(inputController.horizontalInput))
         {
-            jump = true;
+            Flip();
         }
 
         myAnimator.SetBool("Grounded", isGrounded);
@@ -57,11 +56,11 @@ public class Locomotion : MonoBehaviour
     {
         isGrounded = CheckGround();
 
-        if (jump && isGrounded)
+        if (inputController.jump && isGrounded)
         {
             Jump();
         }
-        jump = false;
+        inputController.jump = false;
     }
 
     private bool CheckGround()
@@ -90,8 +89,14 @@ public class Locomotion : MonoBehaviour
         return transform.right.x < 0f && horizontalInput > 0f || transform.right.x > 0f && horizontalInput < 0f;
     }
 
-    public void Die()
+    public void StopMoving()
     {
+        canMove = false;
         myRigidbody2D.velocity = new Vector2(0f, myRigidbody2D.velocity.y);
+    }
+
+    public void StartMoving()
+    {
+        canMove = true;
     }
 }

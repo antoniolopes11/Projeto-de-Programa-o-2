@@ -6,12 +6,20 @@ public class Interaction : MonoBehaviour
 {
     private IInteractable interactableObject;
 
+    private PlayerInput inputController;
+
     private bool canInteract = true;
+
+    private void Awake()
+    {
+        inputController = GetComponent<PlayerInput>();
+    }
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E)&& canInteract)
+        if(inputController.interact && canInteract)
         {
+            inputController.interact = false;
             if(interactableObject != null)
             {
                 interactableObject.Interact();
