@@ -2,17 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AlienSign : MonoBehaviour
+public class AlienSign : MonoBehaviour, IActivable
 {
-    // Start is called before the first frame update
-    void Start()
+    private SpriteRenderer spriteRenderer = null;
+
+    [SerializeField]
+    private Sprite[] sprites = null;
+
+    private void Awake()
     {
-        
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+    public void Activate()
+    {
+        spriteRenderer.sprite = sprites[1];
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Deactivate()
     {
-        
+        spriteRenderer.sprite = sprites[0];
     }
 }

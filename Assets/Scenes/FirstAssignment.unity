@@ -452,9 +452,10 @@ GameObject:
   - component: {fileID: 271946022}
   - component: {fileID: 271946023}
   - component: {fileID: 271946024}
+  - component: {fileID: 271946025}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -632,6 +633,18 @@ MonoBehaviour:
   jump: 0
   attack: 0
   interact: 0
+--- !u!114 &271946025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 271946016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0b4790972ac75e4fb922967d3cc21ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &313456364
 GameObject:
   m_ObjectHideFlags: 0
@@ -1760,6 +1773,7 @@ GameObject:
   m_Component:
   - component: {fileID: 816541365}
   - component: {fileID: 816541364}
+  - component: {fileID: 816541366}
   m_Layer: 0
   m_Name: Alien Sign 1
   m_TagString: Untagged
@@ -1832,6 +1846,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &816541366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816541363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e94a9f32b9c1fe49a818c0ce322624d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: -1460828088465100575, guid: 4b2e54c7e9912df4ba5efb791104999e, type: 3}
+  - {fileID: -389378171920677977, guid: 4b2e54c7e9912df4ba5efb791104999e, type: 3}
 --- !u!1 &836205226
 GameObject:
   m_ObjectHideFlags: 0
@@ -2744,6 +2773,7 @@ GameObject:
   - component: {fileID: 1608308358}
   - component: {fileID: 1608308357}
   - component: {fileID: 1608308356}
+  - component: {fileID: 1608308359}
   m_Layer: 0
   m_Name: Switch 1
   m_TagString: Untagged
@@ -2832,6 +2862,22 @@ Transform:
   m_Father: {fileID: 313456365}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1608308359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608308355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6b92acad7ab4b749b49f384282809c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: -1494352897237206093, guid: af13822ec6641924f984dedbd96ee8aa, type: 3}
+  - {fileID: 5207117429831932417, guid: af13822ec6641924f984dedbd96ee8aa, type: 3}
+  objectToLink: {fileID: 816541363}
 --- !u!1001 &1617695737
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3154,7 +3200,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 5
 --- !u!1 &1824937700
 GameObject:
   m_ObjectHideFlags: 0
@@ -3166,6 +3212,7 @@ GameObject:
   - component: {fileID: 1824937703}
   - component: {fileID: 1824937702}
   - component: {fileID: 1824937701}
+  - component: {fileID: 1824937704}
   m_Layer: 0
   m_Name: Switch 2
   m_TagString: Untagged
@@ -3254,6 +3301,22 @@ Transform:
   m_Father: {fileID: 313456365}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1824937704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1824937700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6b92acad7ab4b749b49f384282809c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: -1494352897237206093, guid: af13822ec6641924f984dedbd96ee8aa, type: 3}
+  - {fileID: 5207117429831932417, guid: af13822ec6641924f984dedbd96ee8aa, type: 3}
+  objectToLink: {fileID: 1905463647}
 --- !u!1001 &1866770211
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3439,6 +3502,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1905463649}
   - component: {fileID: 1905463648}
+  - component: {fileID: 1905463650}
   m_Layer: 0
   m_Name: Alien Sign 2
   m_TagString: Untagged
@@ -3511,6 +3575,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1905463650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1905463647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e94a9f32b9c1fe49a818c0ce322624d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: -1460828088465100575, guid: 4b2e54c7e9912df4ba5efb791104999e, type: 3}
+  - {fileID: -389378171920677977, guid: 4b2e54c7e9912df4ba5efb791104999e, type: 3}
 --- !u!1001 &1921251470
 PrefabInstance:
   m_ObjectHideFlags: 0
