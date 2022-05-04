@@ -7,7 +7,7 @@ public class AlienSign : MonoBehaviour, IActivable
     private SpriteRenderer spriteRenderer = null;
 
     [SerializeField]
-    private Sprite[] sprites = null;
+    private List<Sprite> sprites = new List<Sprite>();
 
     private void Awake()
     {

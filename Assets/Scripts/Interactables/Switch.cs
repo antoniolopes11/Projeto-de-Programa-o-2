@@ -7,7 +7,7 @@ public class Switch : MonoBehaviour, IInteractable
     private SpriteRenderer spriteRenderer = null;
 
     [SerializeField]
-    private Sprite[] sprites = null;
+    private List<Sprite> sprites = new List<Sprite>();
 
     private bool switchOff = true;
 

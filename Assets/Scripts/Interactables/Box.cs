@@ -7,7 +7,7 @@ public class Box : MonoBehaviour, IInteractable
     private SpriteRenderer spriteRenderer = null;
 
     [SerializeField]
-    private Sprite[] sprites = null;
+    private List<Sprite> sprites = new List<Sprite>();
 
     [SerializeField]
     private GameObject lightBeam = null;
