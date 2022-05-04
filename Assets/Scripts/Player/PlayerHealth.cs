@@ -3,11 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField]
     private int lifePoints = 100;
+
+    [SerializeField]
+    private UnityEvent OnDie;
 
     private int maxLifePoints;
 
@@ -16,8 +20,13 @@ public class PlayerHealth : MonoBehaviour
 
     private bool isAlive = true;
 
+    private bool canTakeDamage = true;
+
+    private Animator playerAnimator = null;
+
     private void Awake()
     {
+        playerAnimator = GetComponent<Animator>();
         maxLifePoints = lifePoints;
         UpdateLifeBar();
     }
@@ -31,14 +40,17 @@ public class PlayerHealth : MonoBehaviour
     {
         if (isAlive)
         {
-            lifePoints -= damage;
+            if (canTakeDamage)
+            {
+                lifePoints -= damage;
+                playerAnimator.SetTrigger("Damage");
+                UpdateLifeBar();
+            }
 
             if (lifePoints < 0)
             {
                 lifePoints = 0;
             }
-
-            UpdateLifeBar();
 
             if(lifePoints == 0)
             {
@@ -50,5 +62,13 @@ public class PlayerHealth : MonoBehaviour
     private void Die()
     {
         isAlive = false;
+        canTakeDamage = false;
+        playerAnimator.SetTrigger("Die");
+        OnDie.Invoke();
+    }
+
+    public void BecomeInvincible()
+    {
+        canTakeDamage = false;
     }
 }

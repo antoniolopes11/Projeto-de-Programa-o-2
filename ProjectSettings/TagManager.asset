@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -13,8 +14,8 @@ TagManager:
   - UI
   - Ground
   - Player
-  - 
-  - 
+  - Bullet
+  - Alien Structures
   - 
   - 
   - 
@@ -47,11 +48,11 @@ TagManager:
   - name: BackProps
     uniqueID: 2298146463
     locked: 0
-  - name: Items
-    uniqueID: 167747447
-    locked: 0
   - name: FrontProps
     uniqueID: 1228299969
+    locked: 0
+  - name: Items
+    uniqueID: 167747447
     locked: 0
   - name: Player
     uniqueID: 1852612343
