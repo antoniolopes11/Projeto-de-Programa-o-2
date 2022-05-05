@@ -23,7 +23,7 @@ public class MovingPlatform : MonoBehaviour, IActivable
 
     private void Awake()
     {
-        startPosition = points[0].position;
+        startPosition = points[0].position; //sets the starting position as well as the target, not the most optimal... hard coded start location
         targetPostion = points[targetIndex].position;
     }
 

@@ -36,7 +36,8 @@ public class PressurePlate : MonoBehaviour, IActivable
     private void OnTriggerExit2D(Collider2D collision)
     {
         onTopOfPlatform--;
-        if(!offPlate && onTopOfPlatform == 0)
+        //checks if there aren't any objects on the platform in order to deactivate it
+        if (!offPlate && onTopOfPlatform == 0) 
         {
             Deactivate();
         }
